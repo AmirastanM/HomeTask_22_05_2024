@@ -1,0 +1,9 @@
+﻿namespace FiorelloBack.ViewModels.Categories
+{
+    public class CategoryArchiveVM
+    {
+        public int Id { get; set; } 
+        public string CategoryName { get; set; }
+        public string CreateDate { get; set; }        
+    }
+}

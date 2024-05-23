@@ -1,0 +1,57 @@
+﻿@model IEnumerable<CategoryArchiveVM>
+@{
+    ViewData["Title"] = "Category Archive";
+}
+
+<div class="container mt-5 ml-5">
+    <h2 class="text-center">Archive Categories</h2>
+
+  
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="text-center">Category Name</th>
+                        <th class="text-center">Created Date</th>                       
+                        <th class="text-center">Operations</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="category-data">
+                            <td class="text-center">@item.CategoryName</td>
+                            <td class="text-center">@item.CreateDate</td>                           
+                            <td class="text-center mr-3">
+                           
+                                <form class="d-inline" method="post" asp-controller="Category" asp-action="Delete" asp-route-id="@item.Id">
+                                    <button type="submit" class="detail btn btn-danger btn-md">
+                                        <i class="fas fa-archive"></i>
+                                    </button>
+                                </form>
+                                <a class="detail btn btn-secondary btn-md add-archive" data-id="@item.Id">
+                                    Restore
+                                </a>
+                            </td>
+                        </tr>
+
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+@section js{
+    <script src="~/admin/js/archive.js"></script>
+}
+
+
+
